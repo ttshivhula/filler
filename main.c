@@ -6,11 +6,12 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:39:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 17:06:37 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 19:45:39 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
+t_possible *rank_moves(t_possible *head, t_filler filler);
 
 void		add_move(t_possible **head, int x, int y, int fitness)
 {
@@ -109,10 +110,11 @@ void		collect_possible_moves(t_filler *filler, t_possible **moves)
 	}
 }
 
-void		print_moves(t_possible *moves, t_filler *f)
+void		print_moves(t_possible *moves, t_filler f)
 {
 	if (moves)
 	{
+		moves = rank_moves(moves, f);
 		ft_putnbr(moves->y);
 		ft_putchar(' ');
 		ft_putnbr(moves->x);
@@ -146,7 +148,7 @@ int		main(void)
 				break ;
 			get_piece(&filler);
 			collect_possible_moves(&filler, &moves);
-			print_moves(moves, &filler);
+			print_moves(moves, filler);
 			free_filler(&moves, filler);
 		}
 	}

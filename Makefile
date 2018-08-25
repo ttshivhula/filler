@@ -6,14 +6,14 @@
 #    By: ttshivhu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/11 11:29:48 by ttshivhu          #+#    #+#              #
-#*   Updated: 2018/08/25 18:55:20 by ttshivhu         ###   ########.fr       *#
+#*   Updated: 2018/08/25 19:46:06 by ttshivhu         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ttshivhu.filler
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I. -Ilibft
-SRC = main.c piece.c get_next_line.c
+SRC = main.c piece.c get_next_line.c rank.c
 SILENT = --no-print-directory
 OBJ = $(SRC:.c=.o)
 all: $(NAME)
