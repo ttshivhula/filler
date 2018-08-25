@@ -1,5 +1,4 @@
-#include "get_next_line.h"
-#include <stdio.h>
+#include <get_next_line.h>
 
 static char	*readline(char *str)
 {
@@ -78,7 +77,7 @@ int		get_next_line(int fd, char **line)
 		{
 			if (!ft_strlen(str))
 				return (0);
-			str = free_join(str, "\n"); // the last char in the buff must be a new line
+			str = free_join(str, "\n");
 			check = ft_strchr(str, '\n');
 		}
 		else if (c == -1)
