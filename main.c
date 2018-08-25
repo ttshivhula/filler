@@ -6,7 +6,7 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:39:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:42:49 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 17:06:37 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,17 @@ void		add_move(t_possible **head, int x, int y, int fitness)
 	*head = tmp;
 }
 
-void		remove_moves(t_possible **head)
+void		free_map(char **ptr)
+{
+	int	i;
+
+	i = -1;
+	while (ptr[++i])
+		free(ptr[i]);
+	ptr ? free(ptr) : 0;
+}
+
+void		free_filler(t_possible **head, t_filler filler)
 {
 	t_possible *tmp;
 
@@ -43,6 +53,8 @@ void		remove_moves(t_possible **head)
 		free(*head);
 		*head = tmp;
 	}
+	free_map(filler.map);
+	free_map(filler.piece);
 }
 
 int		valid_move(int y, int x, t_filler *filler)
@@ -135,7 +147,7 @@ int		main(void)
 			get_piece(&filler);
 			collect_possible_moves(&filler, &moves);
 			print_moves(moves, &filler);
-			remove_moves(&moves);
+			free_filler(&moves, filler);
 		}
 	}
 	return (0);
