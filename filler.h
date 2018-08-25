@@ -6,14 +6,14 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 14:42:29 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:02:56 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 16:22:41 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
 
-#include "get_next_line.h"
+#include <get_next_line.h>
 
 typedef	struct	s_filler
 {

@@ -6,11 +6,11 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:39:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:03:48 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 16:20:40 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include <filler.h>
 
 void		add_move(t_possible **head, int x, int y, int fitness)
 {
@@ -103,6 +103,7 @@ void		print_moves(t_possible *moves, t_filler *f)
 		ft_putnbr(0);
 		ft_putchar('\n');
 	}
+	(void)f;
 	/*while (moves)
 	{
 		ft_putstr_fd("move: ", fd);
