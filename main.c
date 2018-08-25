@@ -6,7 +6,7 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:39:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:20:40 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 16:42:49 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,18 @@ void		add_move(t_possible **head, int x, int y, int fitness)
 	*head = tmp;
 }
 
+void		remove_moves(t_possible **head)
+{
+	t_possible *tmp;
+
+	while (*head != NULL)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
+	}
+}
+
 int		valid_move(int y, int x, t_filler *filler)
 {
 	int yi;
@@ -41,11 +53,9 @@ int		valid_move(int y, int x, t_filler *filler)
 
 	res = 0;
 	yi = 0;
-
 	if ((y + (*filler).y_piece > (*filler).y_map) ||
 	    (x + (*filler).x_piece > (*filler).x_map))
 		return (2);
-
 	while ((yi < (*filler).y_piece) && res < 2)
 	{
 		xi = 0;
@@ -104,27 +114,19 @@ void		print_moves(t_possible *moves, t_filler *f)
 		ft_putchar('\n');
 	}
 	(void)f;
-	/*while (moves)
-	{
-		ft_putstr_fd("move: ", fd);
-		ft_putnbr_fd(moves->y, fd);
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(moves->x, fd);
-		ft_putchar_fd('\n', fd);
-		moves = moves->next;
-	}*/
 }
 
 int		main(void)
 {
 	t_filler	filler;
-	t_possible	*moves = NULL;
+	t_possible	*moves;
 
 	ft_bzero(&filler, sizeof(t_filler));
 	if (get_player(&filler))
 	{
 		while (1)
 		{
+			moves = NULL;
 			if (get_map_size(&filler) < 0)
 				break ;
 			get_map(&filler);
@@ -133,6 +135,7 @@ int		main(void)
 			get_piece(&filler);
 			collect_possible_moves(&filler, &moves);
 			print_moves(moves, &filler);
+			remove_moves(&moves);
 		}
 	}
 	return (0);

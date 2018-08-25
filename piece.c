@@ -6,7 +6,7 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 14:36:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:21:00 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 16:29:32 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int		get_player(t_filler *filler)
 	if (get_next_line(0, &line))
 	{
 		i = 0;
-		ft_putendl_fd(line, 3);
 		while (line[i])
 		{
 			if (line[i] == 'p' && ft_isdigit(line[i + 1]))
@@ -42,7 +41,6 @@ int		get_piece_size(t_filler *filler)
 
 	if (get_next_line(0, &line))
 	{
-		ft_putendl_fd(line, 3);
 		if (ft_strncmp("Piece", line, 5) == 0)
 		{
 			tmp = ft_strchr(line, ' ') + 1;
@@ -64,7 +62,6 @@ int		get_map_size(t_filler *filler)
 
 	if (get_next_line(0, &line))
 	{
-		ft_putendl_fd(line, 3);
 		if (ft_strncmp("Plateau", line, 7) == 0)
 		{
 			tmp = ft_strchr(line, ' ') + 1;
@@ -89,7 +86,6 @@ void		get_piece(t_filler *filler)
 	i = -1;
 	while (get_next_line(0, &line) && (++i < (*filler).y_piece))
 	{
-		ft_putendl_fd(line, 3);
 		(*filler).piece[i] = (char *)malloc(sizeof(char) * (*filler).x_piece + 1);
 		ft_strcpy((*filler).piece[i], line);
 		if (i == (*filler).y_piece - 1)
@@ -108,7 +104,6 @@ void		get_map(t_filler *filler)
 	i = -2;
 	while (get_next_line(0, &line) && (++i < (*filler).y_map))
 	{
-		ft_putendl_fd(line, 3);
 		if (i > -1)
 		{
 			tmp = ft_strchr(line, ' ') + 1;
