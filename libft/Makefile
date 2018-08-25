@@ -6,7 +6,7 @@
 #    By: ttshivhu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/31 12:28:51 by ttshivhu          #+#    #+#              #
-#*   Updated: 2018/08/25 18:50:45 by ttshivhu         ###   ########.fr       *#
+#*   Updated: 2018/08/25 18:57:56 by ttshivhu         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = ft_memset.c ft_bzero.c ft_memccpy.c ft_memcpy.c ft_memmove.c ft_memchr.c 
 	   ft_dlstadd.c ft_dlstgettail.c ft_dlstremovenode.c \
 
 CFLAGS = -Wall -Werror -Wextra
+CC = gcc
 
 OBJ = $(SRCS:.c=.o)
 
