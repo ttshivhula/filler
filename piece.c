@@ -6,7 +6,7 @@
 /*   By: ttshivhu <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 14:36:21 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/08/25 16:29:32 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/08/25 17:24:04 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		get_player(t_filler *filler)
 			}
 			i++;
 		}
+		line ? free(line) : 0;
 	}
 	return (0);
 }
@@ -49,6 +50,7 @@ int		get_piece_size(t_filler *filler)
 			(*filler).x_piece = ft_atoi(tmp);
 			return (1);
 		}
+		line ? free(line) : 0;
 	}
 	else
 		return  (-1);
@@ -70,6 +72,7 @@ int		get_map_size(t_filler *filler)
 			(*filler).x_map = ft_atoi(tmp);
 			return (1);
 		}
+		line ? free(line) : 0;
 	}
 	else
 		return (-1);
@@ -90,7 +93,9 @@ void		get_piece(t_filler *filler)
 		ft_strcpy((*filler).piece[i], line);
 		if (i == (*filler).y_piece - 1)
 			break ;
+		line ? free(line) : 0;
 	}
+	line ? free(line) : 0;
 	(*filler).piece[++i] = NULL;
 }
 
@@ -113,6 +118,8 @@ void		get_map(t_filler *filler)
 		}
 		if (i + 1 >= (*filler).y_map)
 			break ;
+		line ? free(line) : 0;
 	}
+	line ? free(line) : 0;
 	(*filler).map[++i] = NULL;
 }
